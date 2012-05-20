@@ -8,11 +8,22 @@ filetype off
 set rtp+=~/dotfiles/.vim/bundle/neobundle.vim/
 call neobundle#rc()
 
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Align'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'ujihisa/unite-font'
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Align'   
+NeoBundle 'JavaScript-syntax'
+NeoBundle 'sudo.vim'
 
 filetype plugin on
 
@@ -53,7 +64,7 @@ set showmatch                   " display ]})  by input [{( for a moment
 set whichwrap=b,s,h,l,<,>,[,]   " don't stop at the beginning and ending of sentence
 set backspace=indent,eol,start  " enable <BS> key delete autoindent space and new line code and all string
 
-if has('multi_byte_ime') || has('xim')  " 日本語入力ON時のカーソルの色を設定
+if has('multi_byte_ime') || has('xim')
 highlight CursorIM guibg=Purple guifg=NONE
 endif
 
@@ -86,6 +97,7 @@ set cinoptions+=:0,g0,to  " setting cindent options (0:case, g0:c++ scope, t0:fu
 " Tab settings
 set expandtab   " preg s/<TAB>/space
 set tabstop=4   " set tab length
+set softtabstop=4
 
 function InsertTabWrapper()
     if pumvisible()    " pumvisible() 6.4 NG -> 7.3 OK
@@ -126,6 +138,18 @@ map Q gq
 :inoremap <c-s> <Esc>
 :nnoremap <c-q> <Esc>:q<CR>
 
+" buffer view
+nnoremap <C-P> :Unite buffer<CR>
+" file view
+nnoremap <C-N> :UniteWithBufferDir file -buffer-name=files<CR>
+" recent files view
+nnoremap <C-Z> :Unite file_mru<CR>
+" outline
+nnoremap <C-O> :Unite outline<CR>
+" colorscheme
+nnoremap sc :<C-u>Unite colorscheme -auto-preview<CR>
+" nerdtree
+:nmap <F9> :NERDTreeToggle
 
 "-------------------------------------------------------------------------------
 " Plugin settings
@@ -133,3 +157,5 @@ map Q gq
 " ref: http://d.hatena.ne.jp/famnet/20110619/install_neocmplcache_vim_plugin
 let g:neocomplcache_enable_at_startup = 1 " setup when begins
 
+let g:unite_enable_start_insert = 0
+let g:unite_enable_split_vertically = 1
