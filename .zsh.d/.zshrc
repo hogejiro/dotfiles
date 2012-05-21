@@ -49,3 +49,6 @@ HISTFILE=$HOME/dotfiles/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
+# alias
+alias v='vim'
+

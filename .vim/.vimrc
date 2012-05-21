@@ -8,6 +8,7 @@ filetype off
 set rtp+=~/dotfiles/.vim/bundle/neobundle.vim/
 call neobundle#rc()
 
+NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'thinca/vim-guicolorscheme'
@@ -29,7 +30,8 @@ filetype plugin on
 
 set number              " display line number
 set title               " set title at titlebar
-set fileencoding=utf-8  " utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 set shortmess+=I        " file message format
 set visualbell          " flash not beep
 set showmode            " display current mode  
