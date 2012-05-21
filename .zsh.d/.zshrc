@@ -45,7 +45,6 @@ zle -N cdup
 bindkey '\^' cdup
 
 # history
-HISTFILE=$HOME/dotfiles/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
