@@ -141,6 +141,10 @@ map Q gq
 :inoremap <c-s> <Esc>
 :nnoremap <c-q> <Esc>:q<CR>
 
+" for US keyboard
+:nnoremap ; :
+:nnoremap : ;
+
 " buffer view
 nnoremap <C-P> :Unite buffer<CR>
 " file view
