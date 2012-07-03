@@ -23,6 +23,7 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-font'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'Align'   
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'sudo.vim'
@@ -166,3 +167,11 @@ let g:neocomplcache_enable_at_startup = 1 " setup when begins
 
 let g:unite_enable_start_insert = 0
 let g:unite_enable_split_vertically = 1
+
+" vim-ref
+let g:ref_phpmanual_path='/home/osanai/dotfiles/.vim/document/php-chunked-xhtml'
+nnoremap rp :<C-u>Ref phpmanual<CR>
+
+" neco-ghc
+let $PATH = $PATH . ':' . expand("~/.cabal/bin")
+
