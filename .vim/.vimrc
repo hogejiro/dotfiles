@@ -138,6 +138,7 @@ map Q gq
 :inoremap ( ()<Left>
 :inoremap " ""<Left>
 :inoremap ' ''<Left>
+:inoremap ` ``<Left>
 
 :inoremap <c-s> <Esc>
 :nnoremap <c-q> <Esc>:q<CR>
@@ -157,7 +158,7 @@ nnoremap <C-O> :Unite outline<CR>
 " colorscheme
 nnoremap sc :<C-u>Unite colorscheme -auto-preview<CR>
 " nerdtree
-:nmap <F9> :NERDTreeToggle
+nnoremap <C-T> :NERDTreeToggle<CR>
 
 "-------------------------------------------------------------------------------
 " Plugin settings
@@ -171,6 +172,7 @@ let g:unite_enable_split_vertically = 1
 " vim-ref
 let g:ref_phpmanual_path='/home/osanai/dotfiles/.vim/document/php-chunked-xhtml'
 nnoremap rp :<C-u>Ref phpmanual<CR>
+nnoremap rh :<C-u>Ref hoogle<CR>
 
 " neco-ghc
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")

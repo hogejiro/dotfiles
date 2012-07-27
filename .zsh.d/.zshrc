@@ -44,6 +44,8 @@ function cdup() {
 zle -N cdup
 bindkey '\^' cdup
 
+chpwd() { ls }
+
 # history
 HISTSIZE=100000
 SAVEHIST=100000
