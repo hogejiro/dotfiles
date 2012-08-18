@@ -15,6 +15,7 @@ NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neobundle.vim'
@@ -116,7 +117,7 @@ function InsertTabWrapper()
         return "\<c-x>\<c-o>"
     endif
 endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <TAB> <c-r>=InsertTabWrapper()<cr>
 
 "-------------------------------------------------------------------------------
 " Keybind settings
@@ -165,8 +166,14 @@ nnoremap <C-T> :NERDTreeToggle<CR>
 " neocomplcache
 " ref: http://d.hatena.ne.jp/famnet/20110619/install_neocmplcache_vim_plugin
 let g:neocomplcache_enable_at_startup = 1 " setup when begins
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_max_list          = 20
+let g:neocomplcache_snippets_dir      = '~/dotfiles/.vim/snippets'
+" ref: http://code-life.net/?p=2308
+imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 
-let g:unite_enable_start_insert = 0
+" unite
+let g:unite_enable_start_insert     = 0
 let g:unite_enable_split_vertically = 1
 
 " vim-ref
