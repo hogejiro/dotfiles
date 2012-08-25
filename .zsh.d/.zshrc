@@ -52,4 +52,5 @@ SAVEHIST=100000
 
 # alias
 alias v='vim'
+alias usecmd="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
 
