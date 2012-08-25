@@ -25,6 +25,7 @@ NeoBundle 'ujihisa/unite-font'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'ujihisa/ref-hoogle'
+NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 NeoBundle 'Align'   
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'sudo.vim'
@@ -68,6 +69,7 @@ set ruler                       " show the cursor position all the time
 set showmatch                   " display ]})  by input [{( for a moment
 set whichwrap=b,s,h,l,<,>,[,]   " don't stop at the beginning and ending of sentence
 set backspace=indent,eol,start  " enable <BS> key delete autoindent space and new line code and all string
+set foldmethod=marker
 
 if has('multi_byte_ime') || has('xim')
 highlight CursorIM guibg=Purple guifg=NONE
@@ -184,3 +186,7 @@ nnoremap rh :<C-u>Ref hoogle<CR>
 " neco-ghc
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 
+" PDV (PhpDocumenter for vim)
+inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-@> :call PhpDocSingle()<CR>
+vnoremap <C-@> :call PhpDocRange()<CR>
