@@ -1,6 +1,7 @@
 escape ^Tt
 termcap kterm hs@
 terminfo kterm hs@
+termcapinfo xterm* ti@:te@
 vbell off
 
 bind w windowlist -b
