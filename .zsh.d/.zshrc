@@ -52,5 +52,6 @@ SAVEHIST=100000
 
 # alias
 alias v='vim'
+alias gdf='git diff'
 alias usecmd="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
 
