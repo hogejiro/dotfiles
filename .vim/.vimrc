@@ -38,7 +38,8 @@ set encoding=utf-8
 set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 set shortmess+=I        " file message format
 set visualbell          " flash not beep
-set showmode            " display current mode  
+set showmode            " display current mode
+set ambiwidth=double
 
 "-------------------------------------------------------------------------------
 " Backup settings
@@ -69,7 +70,7 @@ set ruler                       " show the cursor position all the time
 set showmatch                   " display ]})  by input [{( for a moment
 set whichwrap=b,s,h,l,<,>,[,]   " don't stop at the beginning and ending of sentence
 set backspace=indent,eol,start  " enable <BS> key delete autoindent space and new line code and all string
-set foldmethod=marker
+set foldmethod=marker           " fold {{{}}}
 
 if has('multi_byte_ime') || has('xim')
 highlight CursorIM guibg=Purple guifg=NONE
@@ -146,6 +147,9 @@ map Q gq
 :inoremap <c-s> <Esc>
 :nnoremap <c-q> <Esc>:q<CR>
 
+nnoremap euc :set encoding=euc-jp<CR> :set fileencoding=euc-jp<CR>
+nnoremap utf :set encoding=utf-8<CR>  :set fileencoding=utf-8<CR>
+
 " for US keyboard
 :nnoremap ; :
 :nnoremap : ;
@@ -157,7 +161,7 @@ nnoremap <C-N> :UniteWithBufferDir file -buffer-name=files<CR>
 " recent files view
 nnoremap <C-Z> :Unite file_mru<CR>
 " outline
-nnoremap <C-O> :Unite outline<CR>
+nnoremap <C-Y> :Unite outline<CR>
 " colorscheme
 nnoremap sc :<C-u>Unite colorscheme -auto-preview<CR>
 " nerdtree
@@ -165,6 +169,8 @@ nnoremap <C-T> :NERDTreeToggle<CR>
 
 "-------------------------------------------------------------------------------
 " Plugin settings
+set runtimepath+=/home/osanai/dotfiles/.vim
+
 " neocomplcache
 " ref: http://d.hatena.ne.jp/famnet/20110619/install_neocmplcache_vim_plugin
 let g:neocomplcache_enable_at_startup = 1 " setup when begins
@@ -190,3 +196,10 @@ let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-@> :call PhpDocSingle()<CR>
 vnoremap <C-@> :call PhpDocRange()<CR>
+
+" GNU GLOBAL
+nnoremap <C-g> :Gtags
+nnoremap <C-h> :Gtags -f %<CR>
+nnoremap <C-i> :GtagsCursor<CR>
+nnoremap <C-j> :cn<CR>
+nnoremap <C-k> :cp<CR>
