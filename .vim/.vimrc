@@ -55,7 +55,7 @@ endif
 " Color settings
 syntax on               " color-coded indication
 if filereadable(expand("~/dotfiles/.vim/colors/wombat.vim"))
-source ~/dotfiles/.vim/colors/wombat.vim                       " wombat.vim
+    source ~/dotfiles/.vim/colors/wombat.vim                       " wombat.vim
 end
 
 "-------------------------------------------------------------------------------
@@ -73,7 +73,7 @@ set backspace=indent,eol,start  " enable <BS> key delete autoindent space and ne
 set foldmethod=marker           " fold {{{}}}
 
 if has('multi_byte_ime') || has('xim')
-highlight CursorIM guibg=Purple guifg=NONE
+    highlight CursorIM guibg=Purple guifg=NONE
 endif
 
 if has("autocmd")
@@ -169,7 +169,7 @@ nnoremap <C-T> :NERDTreeToggle<CR>
 
 "-------------------------------------------------------------------------------
 " Plugin settings
-set runtimepath+=/home/osanai/dotfiles/.vim
+set rtp+=~/dotfiles/.vim
 
 " neocomplcache
 " ref: http://d.hatena.ne.jp/famnet/20110619/install_neocmplcache_vim_plugin
