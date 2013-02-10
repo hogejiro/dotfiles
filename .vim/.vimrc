@@ -15,10 +15,11 @@ NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-font'
@@ -26,6 +27,7 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
+NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'Align'   
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'sudo.vim'
@@ -35,7 +37,7 @@ filetype plugin on
 set number              " display line number
 set title               " set title at titlebar
 set encoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eucjp-ms,cp932,sjis
 set shortmess+=I        " file message format
 set visualbell          " flash not beep
 set showmode            " display current mode
@@ -164,8 +166,6 @@ nnoremap <C-Z> :Unite file_mru<CR>
 nnoremap <C-Y> :Unite outline<CR>
 " colorscheme
 nnoremap sc :<C-u>Unite colorscheme -auto-preview<CR>
-" nerdtree
-nnoremap <C-T> :NERDTreeToggle<CR>
 
 "-------------------------------------------------------------------------------
 " Plugin settings
@@ -203,3 +203,31 @@ nnoremap <C-h> :Gtags -f %<CR>
 nnoremap <C-i> :GtagsCursor<CR>
 nnoremap <C-j> :cn<CR>
 nnoremap <C-k> :cp<CR>
+
+" TwitVim
+let g:twitvim_count = 200
+
+" vimfiler
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_as_default_explorer = 1
+nnoremap filer :VimFiler -buffer-name=explorer -split -winwidth=35 -toggle -no-quit<Cr>
+autocmd! FileType vimfiler call g:my_vimfiler_settings()
+function! g:my_vimfiler_settings()
+  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
+  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
+endfunction
+
+let s:my_action = { 'is_selectable' : 1 }
+function! s:my_action.func(candidates)
+  wincmd p
+  exec 'split '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_split', s:my_action)
+
+let s:my_action = { 'is_selectable' : 1 }                     
+function! s:my_action.func(candidates)
+  wincmd p
+  exec 'vsplit '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_vsplit', s:my_action)
