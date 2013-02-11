@@ -28,6 +28,7 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 NeoBundle 'vim-scripts/TwitVim'
+NeoBundle 'vimtaku/hl_matchit.vim.git'
 NeoBundle 'Align'   
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'sudo.vim'
@@ -231,3 +232,13 @@ function! s:my_action.func(candidates)
   exec 'vsplit '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_vsplit', s:my_action)
+
+" matchiit
+runtime macros/matchit.vim
+let b:match_words = "if:endif,foreach:endforeach,\<begin\>:\<end\>,\<div.*\>:\</div\>"
+let b:match_ignorecase = 1
+
+" for hl_matchit
+let g:hl_matchit_enable_on_vim_startup = 1
+let g:hl_matchit_hl_groupname = 'Title'
+let g:hl_matchit_allow_ft_regexp = 'html\|vim\|ruby\|sh'
