@@ -9,7 +9,10 @@ set rtp+=~/dotfiles/.vim/bundle/neobundle.vim/
 call neobundle#rc()
 
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'othree/html5'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'thinca/vim-quickrun'
@@ -20,6 +23,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-font'
@@ -168,6 +172,23 @@ nnoremap <C-Y> :Unite outline<CR>
 " colorscheme
 nnoremap sc :<C-u>Unite colorscheme -auto-preview<CR>
 
+if !exists('g:yanktmp_file')
+  let g:yanktmp_file = '/tmp/vimyanktmp'
+endif
+
+function! YanktmpYank() range
+  call writefile(getline(a:firstline, a:lastline), g:yanktmp_file, 'b')
+endfunction
+
+function! YanktmpPaste_p() range
+  let pos = getpos('.')
+  call append(a:firstline, readfile(g:yanktmp_file, "b"))
+  call setpos('.', [0, pos[1] + 1, 1, 0])
+endfunction
+
+nnoremap <silent> sy :call YanktmpYank()<CR>
+nnoremap <silent> sp :call YanktmpPaste_p()<CR>
+
 "-------------------------------------------------------------------------------
 " Plugin settings
 set rtp+=~/dotfiles/.vim
@@ -186,7 +207,7 @@ let g:unite_enable_start_insert     = 0
 let g:unite_enable_split_vertically = 1
 
 " vim-ref
-let g:ref_phpmanual_path='/home/osanai/dotfiles/.vim/document/php-chunked-xhtml'
+let g:ref_phpmanual_path = $HOME . "/dotfiles/.vim/document/php-chunked-xhtml"
 nnoremap rp :<C-u>Ref phpmanual<CR>
 nnoremap rh :<C-u>Ref hoogle<CR>
 
