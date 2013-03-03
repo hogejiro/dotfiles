@@ -173,11 +173,11 @@ nnoremap <C-Y> :Unite outline<CR>
 nnoremap sc :<C-u>Unite colorscheme -auto-preview<CR>
 
 if !exists('g:yanktmp_file')
-  let g:yanktmp_file = '/tmp/vimyanktmp'
+  let g:yanktmp_file = $HOME . "/tmp/" . expand("%") . strftime("%Y%m%d%H%M%S")
 endif
 
 function! YanktmpYank() range
-  call writefile(getline(a:firstline, a:lastline), g:yanktmp_file, 'b')
+  call writefile(getline(a:firstline, a:lastline), g:yanktmp_file)
 endfunction
 
 function! YanktmpPaste_p() range
@@ -186,8 +186,8 @@ function! YanktmpPaste_p() range
   call setpos('.', [0, pos[1] + 1, 1, 0])
 endfunction
 
-nnoremap <silent> sy :call YanktmpYank()<CR>
-nnoremap <silent> sp :call YanktmpPaste_p()<CR>
+map my :call YanktmpYank()<CR>
+map mp :call YanktmpPaste_p()<CR>
 
 "-------------------------------------------------------------------------------
 " Plugin settings
