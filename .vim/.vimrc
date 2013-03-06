@@ -172,22 +172,13 @@ nnoremap <C-Y> :Unite outline<CR>
 " colorscheme
 nnoremap sc :<C-u>Unite colorscheme -auto-preview<CR>
 
-if !exists('g:yanktmp_file')
-  let g:yanktmp_file = $HOME . "/tmp/" . expand("%") . strftime("%Y%m%d%H%M%S")
-endif
-
 function! YanktmpYank() range
+  let filepath = expand("%")
+  let g:yanktmp_file = $HOME . "/tmp/" . strftime("%Y%m%d%H%M%S") . fnamemodify(filepath, ":t")
   call writefile(getline(a:firstline, a:lastline), g:yanktmp_file)
 endfunction
 
-function! YanktmpPaste_p() range
-  let pos = getpos('.')
-  call append(a:firstline, readfile(g:yanktmp_file, "b"))
-  call setpos('.', [0, pos[1] + 1, 1, 0])
-endfunction
-
 map my :call YanktmpYank()<CR>
-map mp :call YanktmpPaste_p()<CR>
 
 "-------------------------------------------------------------------------------
 " Plugin settings
