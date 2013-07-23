@@ -25,6 +25,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-font'
 NeoBundle 'h1mesuke/unite-outline'
@@ -191,7 +192,7 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_max_list          = 20
 let g:neocomplcache_snippets_dir      = '~/dotfiles/.vim/snippets'
 " ref: http://code-life.net/?p=2308
-imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+imap <expr><C-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-o>D"
 
 " unite
 let g:unite_enable_start_insert     = 0
