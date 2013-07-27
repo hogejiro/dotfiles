@@ -1,0 +1,6 @@
+snippet     boot
+abbr        load_bootstrap
+prev_word   '^'
+    (add-load-path ".." :relative)
+    (load "bootstrap.scm")
+    (select-module ${1})
