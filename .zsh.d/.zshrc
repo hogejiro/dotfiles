@@ -54,4 +54,5 @@ SAVEHIST=100000
 alias v='vim'
 alias gdf='git diff'
 alias usecmd="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
+alias memo="vim $HOME/memo/weekly/`date +%Y-%U`.txt"
 
