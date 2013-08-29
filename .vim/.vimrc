@@ -48,6 +48,8 @@ set shortmess+=I        " file message format
 set visualbell          " flash not beep
 set showmode            " display current mode
 set ambiwidth=double
+set list
+set listchars=tab:^\ ,trail:~
 
 "-------------------------------------------------------------------------------
 " Backup settings
