@@ -9,6 +9,7 @@ set rtp+=~/dotfiles/.vim/bundle/neobundle.vim/
 call neobundle#rc()
 
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -49,7 +50,7 @@ set visualbell          " flash not beep
 set showmode            " display current mode
 set ambiwidth=double
 set list
-set listchars=tab:^\ ,trail:~
+set listchars=tab:^\
 
 "-------------------------------------------------------------------------------
 " Backup settings
