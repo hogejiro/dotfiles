@@ -20,6 +20,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle "Shougo/neosnippet-snippets"
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neobundle.vim'
@@ -35,7 +36,7 @@ NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'vimtaku/hl_matchit.vim.git'
-NeoBundle 'Align'   
+NeoBundle 'Align'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'sudo.vim'
 
@@ -51,6 +52,7 @@ set showmode            " display current mode
 set ambiwidth=double
 set list
 set listchars=tab:^\
+autocmd BufWritePre * :%s/\s\+$//ge
 
 "-------------------------------------------------------------------------------
 " Backup settings
@@ -242,7 +244,7 @@ function! s:my_action.func(candidates)
 endfunction
 call unite#custom_action('file', 'my_split', s:my_action)
 
-let s:my_action = { 'is_selectable' : 1 }                     
+let s:my_action = { 'is_selectable' : 1 }
 function! s:my_action.func(candidates)
   wincmd p
   exec 'vsplit '. a:candidates[0].action__path
@@ -257,4 +259,4 @@ let b:match_ignorecase = 1
 " for hl_matchit
 let g:hl_matchit_enable_on_vim_startup = 1
 let g:hl_matchit_hl_groupname = 'Title'
-let g:hl_matchit_allow_ft_regexp = 'html\|vim\|ruby\|sh'
+let g:hl_matchit_allow_ft = 'html\|vim\|ruby\|sh'
