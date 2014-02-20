@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 function cdup() {
     echo
     cd ..
-    zle reset-prompt 
+    zle reset-prompt
 }
 zle -N cdup
 bindkey '\^' cdup
@@ -55,4 +55,4 @@ alias v='vim'
 alias gdf='git diff'
 alias usecmd="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
 alias memo="vim $HOME/memo/weekly/`date +%Y-%U`.txt"
-
+alias tmux="LD_LIBRARY_PATH=/usr/local/lib /usr/local/bin/tmux"
