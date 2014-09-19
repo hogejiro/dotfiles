@@ -35,15 +35,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-# cd .. like dired of Emacs
-function cdup() {
-    echo
-    cd ..
-    zle reset-prompt
-}
-zle -N cdup
-bindkey '\^' cdup
-
 chpwd() { ls }
 
 # history

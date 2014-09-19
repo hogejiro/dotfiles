@@ -1,4 +1,4 @@
 snippet     errlg
 abbr        error_log
 prev_word   '^'
-    error_log(strftime("%Y-%m-%d %H:%m:%S ") . print_r(${1}, true) . "\n", 3, "/tmp/debug.log");
+    error_log(strftime("%Y-%m-%d %H:%m:%S ") . var_export(${1}, true) . "\n", 3, "/tmp/debug.log");

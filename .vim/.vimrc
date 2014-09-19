@@ -13,7 +13,6 @@ NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'othree/html5'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'thinca/vim-quickrun'
@@ -21,6 +20,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle "Shougo/neosnippet-snippets"
+NeoBundle 'Shougo/neomru.vim', {'depends' : 'Shougo/unite.vim'}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neobundle.vim'
@@ -39,13 +39,14 @@ NeoBundle 'vimtaku/hl_matchit.vim.git'
 NeoBundle 'Align'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'sudo.vim'
+NeoBundle 'elzr/vim-json'
 
 filetype plugin on
 
 set number              " display line number
 set title               " set title at titlebar
 set encoding=utf-8
-set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eucjp-ms,cp932,sjis
+set fileencodings=utf-8,euc-jp,ucs-bom,eucjp-ms,cp932,sjis,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,
 set shortmess+=I        " file message format
 set visualbell          " flash not beep
 set showmode            " display current mode
@@ -195,9 +196,9 @@ set rtp+=~/dotfiles/.vim
 let g:neocomplcache_enable_at_startup = 1 " setup when begins
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_max_list          = 20
-let g:neocomplcache_snippets_dir      = '~/dotfiles/.vim/snippets'
 " ref: http://code-life.net/?p=2308
-imap <expr><C-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-o>D"
+let g:neosnippet#snippets_directory  = $HOME . '/dotfiles/.vim/snippets'
+imap <C-L> <Plug>(neosnippet_expand_or_jump)
 
 " unite
 let g:unite_enable_start_insert     = 0
@@ -260,3 +261,7 @@ let b:match_ignorecase = 1
 let g:hl_matchit_enable_on_vim_startup = 1
 let g:hl_matchit_hl_groupname = 'Title'
 let g:hl_matchit_allow_ft = 'html\|vim\|ruby\|sh'
+
+" neomru
+let g:neomru#file_mru_path=expand('~/dotfiles/.vim/etc/neomru/file')
+let g:neomru#directory_mru_path=expand('~/dotfiles/.vim/etc/neomru/direcroty')
