@@ -30,7 +30,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-font'
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'ujihisa/ref-hoogle'
 NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
@@ -203,6 +203,8 @@ imap <C-L> <Plug>(neosnippet_expand_or_jump)
 " unite
 let g:unite_enable_start_insert     = 0
 let g:unite_enable_split_vertically = 1
+let g:unite_data_directory = $HOME . "/dotfiles/.vim/bundle/unite-outline/autoload/unite/sources"
+let g:unite_abbr_highlight = 1
 
 " vim-ref
 let g:ref_phpmanual_path = $HOME . "/dotfiles/.vim/document/php-chunked-xhtml"
