@@ -5,3 +5,5 @@ chsh -s /bin/zsh
 mkdir ~/dotfiles/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim.git ~/dotfiles/.vim/bundle/neobundle.vim
 mkdir -p ~/tmp/vim
+cd ~/dotfiles/.vim/bundle/vimproc/
+make
