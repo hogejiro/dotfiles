@@ -33,6 +33,7 @@ NeoBundle 'ujihisa/unite-font'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'ujihisa/ref-hoogle'
+NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'vimtaku/hl_matchit.vim.git'
@@ -267,3 +268,6 @@ let g:hl_matchit_allow_ft = 'html\|vim\|ruby\|sh'
 " neomru
 let g:neomru#file_mru_path=expand('~/dotfiles/.vim/etc/neomru/file')
 let g:neomru#directory_mru_path=expand('~/dotfiles/.vim/etc/neomru/direcroty')
+
+" QFixHowm
+let QFixHowm_FileType='qfix_memo'
