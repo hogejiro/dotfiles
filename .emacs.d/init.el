@@ -19,7 +19,7 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 
-;; run-haskell: C-c+C-l
+;; run-haskell: C-c + C-l
 (defadvice inferior-haskell-load-file (after change-focus-after-load)
   "Change focus to GHCi window after C-c C-l command"
   (other-window 1))
