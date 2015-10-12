@@ -5,8 +5,13 @@ set nocompatible        " OFF the compatibility mode (vi)
 " NeoBundle settings
 
 filetype off
-set rtp+=~/dotfiles/.vim/bundle/neobundle.vim/
-call neobundle#rc()
+
+if has('vim_starting')
+    set rtp+=~/dotfiles/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'fuenor/qfixhowm'
@@ -44,6 +49,7 @@ NeoBundle 'Align'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'sudo.vim'
 NeoBundle 'elzr/vim-json'
+call neobundle#end()
 
 filetype plugin on
 
