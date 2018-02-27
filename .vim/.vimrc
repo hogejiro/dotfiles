@@ -29,7 +29,6 @@ NeoBundle 'Shougo/neomru.vim', {'depends' : 'Shougo/unite.vim'}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'thinca/vim-ref'
@@ -238,17 +237,6 @@ nnoremap <C-k> :cp<CR>
 
 " TwitVim
 let g:twitvim_count = 200
-
-" vimfiler
-let g:vimfiler_safe_mode_by_default = 0
-let g:vimfiler_as_default_explorer = 1
-nnoremap filer :VimFiler -buffer-name=explorer -split -winwidth=35 -toggle -no-quit<Cr>
-autocmd! FileType vimfiler call g:my_vimfiler_settings()
-function! g:my_vimfiler_settings()
-  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
-  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
-  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
-endfunction
 
 let s:my_action = { 'is_selectable' : 1 }
 function! s:my_action.func(candidates)
