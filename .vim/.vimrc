@@ -1,4 +1,3 @@
-"-------------------------------------------------------------------------------
 " Basic settings
 set nocompatible        " OFF the compatibility mode (vi)
 
@@ -243,14 +242,14 @@ function! s:my_action.func(candidates)
   wincmd p
   exec 'split '. a:candidates[0].action__path
 endfunction
-call unite#custom_action('file', 'my_split', s:my_action)
+call unite#custom#action('file', 'my_split', s:my_action)
 
 let s:my_action = { 'is_selectable' : 1 }
 function! s:my_action.func(candidates)
   wincmd p
   exec 'vsplit '. a:candidates[0].action__path
 endfunction
-call unite#custom_action('file', 'my_vsplit', s:my_action)
+call unite#custom#action('file', 'my_vsplit', s:my_action)
 
 " matchiit
 runtime macros/matchit.vim
