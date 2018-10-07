@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/dotfiles/.zsh.d/.oh-my-zsh
+ZSH=$HOME/dotfiles/.zsh.d/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -39,7 +39,7 @@ chpwd() { ls }
 
 # history
 HISTSIZE=100000
-SAVEHIST=100000
+SAVEHIST=1000000
 
 # alias
 alias v='vim'
@@ -48,3 +48,6 @@ alias usecmd="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 2
 alias memo="vim $HOME/memo/weekly/`date +%Y-%U`.txt"
 alias tmux="LD_LIBRARY_PATH=/usr/local/lib /usr/local/bin/tmux"
 alias gbcl="git branch --merged | grep -v 'master' | grep -v 'develop' | xargs -n 1 git branch -d"
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
