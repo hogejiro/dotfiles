@@ -1,53 +1,46 @@
 " Basic settings
-set nocompatible        " OFF the compatibility mode (vi)
-
-" NeoBundle settings
-
-filetype off
-
-if has('vim_starting')
-    set rtp+=~/dotfiles/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible        " OFF the compatibility mode (vi)
 endif
 
-call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+" dein settings
+set runtimepath+=~/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
 
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'fuenor/qfixhowm'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'thinca/vim-guicolorscheme'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle "Shougo/neosnippet-snippets"
-NeoBundle 'Shougo/neomru.vim', {'depends' : 'Shougo/unite.vim'}
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-font'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'ujihisa/ref-hoogle'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
-NeoBundle 'vim-scripts/TwitVim'
-NeoBundle 'vimtaku/hl_matchit.vim.git'
-NeoBundle 'Align'
-NeoBundle 'JavaScript-syntax'
-NeoBundle 'sudo.vim'
-NeoBundle 'elzr/vim-json'
-call neobundle#end()
+call dein#begin(expand('~/dotfiles/.vim/dein/'))
+
+call dein#add('Shougo/dein.vim')
+
+call dein#add('flazz/vim-colorschemes')
+call dein#add('fuenor/qfixhowm')
+call dein#add('hail2u/vim-css3-syntax')
+call dein#add('jelera/vim-javascript-syntax')
+call dein#add('Lokaltog/vim-easymotion')
+call dein#add('pangloss/vim-javascript')
+call dein#add('thinca/vim-guicolorscheme')
+call dein#add('thinca/vim-quickrun')
+call dein#add('scrooloose/nerdtree')
+call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neosnippet')
+call dein#add("Shougo/neosnippet-snippets")
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/vimshell')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimproc', {'build': 'make'})
+call dein#add('tpope/vim-surround')
+call dein#add('thinca/vim-ref')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('ujihisa/unite-colorscheme')
+call dein#add('ujihisa/unite-font')
+call dein#add('Shougo/unite-outline')
+call dein#add('ujihisa/neco-ghc')
+call dein#add('ujihisa/ref-hoogle')
+call dein#add('eagletmt/ghcmod-vim')
+call dein#add('kana/vim-filetype-haskell')
+call dein#add('dag/vim2hs')
+call dein#add('vimtaku/hl_matchit.vim.git')
+call dein#add('elzr/vim-json')
+
+call dein#end()
 
 filetype plugin on
 
@@ -211,7 +204,7 @@ imap <C-L> <Plug>(neosnippet_expand_or_jump)
 " unite
 let g:unite_enable_start_insert     = 0
 let g:unite_enable_split_vertically = 1
-let g:unite_data_directory = $HOME . "/dotfiles/.vim/bundle/unite-outline/autoload/unite/sources"
+let g:unite_data_directory = $HOME . "/dotfiles/.vim/dein/repos/github.com/Shougo/unite-outline/autoload/unite/sources"
 let g:unite_abbr_highlight = 1
 
 " vim-ref
