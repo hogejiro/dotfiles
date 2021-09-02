@@ -39,6 +39,7 @@ call dein#add('kana/vim-filetype-haskell')
 call dein#add('dag/vim2hs')
 call dein#add('vimtaku/hl_matchit.vim.git')
 call dein#add('elzr/vim-json')
+call dein#add('junegunn/vim-easy-align')
 
 call dein#end()
 
@@ -260,3 +261,9 @@ let g:neomru#directory_mru_path=expand('~/dotfiles/.vim/etc/neomru/direcroty')
 
 " QFixHowm
 let QFixHowm_FileType='qfix_memo'
+
+" EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
