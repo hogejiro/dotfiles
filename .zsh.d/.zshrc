@@ -51,3 +51,6 @@ alias gicl="git branch --merged | grep -v '*' | grep -v 'master' | grep -v 'deve
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# jump
+eval "$(jump shell --bind=j)"
