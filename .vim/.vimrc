@@ -48,7 +48,7 @@ filetype plugin on
 set number              " display line number
 set title               " set title at titlebar
 set encoding=utf-8
-set fileencodings=utf-8 ",euc-jp,ucs-bom,eucjp-ms,cp932,sjis,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,
+set fileencodings=utf-8,euc-jp ",ucs-bom,eucjp-ms,cp932,sjis,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,
 set shortmess+=I        " file message format
 set visualbell          " flash not beep
 set showmode            " display current mode

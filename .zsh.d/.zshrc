@@ -47,7 +47,7 @@ alias gdf='git diff'
 alias usecmd="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
 alias memo="vim $HOME/memo/weekly/`date +%Y-%U`.txt"
 alias tmux="LD_LIBRARY_PATH=/usr/local/lib /usr/local/bin/tmux"
-alias gbcl="git branch --merged | grep -v 'master' | grep -v 'develop' | xargs -n 1 git branch -d"
+alias gicl="git branch --merged | grep -v '*' | grep -v 'master' | grep -v 'develop' | xargs -I {} git branch -d {}"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
