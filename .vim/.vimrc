@@ -6,42 +6,53 @@ endif
 " dein settings
 set runtimepath+=~/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin(expand('~/dotfiles/.vim/dein/'))
+if dein#load_state('~/dotfiles/.vim/dein')
+    call dein#begin(expand('~/dotfiles/.vim/dein/'))
 
-call dein#add('Shougo/dein.vim')
+    call dein#add('Shougo/dein.vim')
 
-call dein#add('flazz/vim-colorschemes')
-call dein#add('fuenor/qfixhowm')
-call dein#add('hail2u/vim-css3-syntax')
-call dein#add('jelera/vim-javascript-syntax')
-call dein#add('Lokaltog/vim-easymotion')
-call dein#add('pangloss/vim-javascript')
-call dein#add('thinca/vim-guicolorscheme')
-call dein#add('thinca/vim-quickrun')
-call dein#add('scrooloose/nerdtree')
-call dein#add('Shougo/neocomplcache')
-call dein#add('Shougo/neosnippet')
-call dein#add("Shougo/neosnippet-snippets")
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/vimshell')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimproc', {'build': 'make'})
-call dein#add('tpope/vim-surround')
-call dein#add('thinca/vim-ref')
-call dein#add('tomtom/tcomment_vim')
-call dein#add('ujihisa/unite-colorscheme')
-call dein#add('ujihisa/unite-font')
-call dein#add('Shougo/unite-outline')
-call dein#add('ujihisa/neco-ghc')
-call dein#add('ujihisa/ref-hoogle')
-call dein#add('eagletmt/ghcmod-vim')
-call dein#add('kana/vim-filetype-haskell')
-call dein#add('dag/vim2hs')
-call dein#add('vimtaku/hl_matchit.vim.git')
-call dein#add('elzr/vim-json')
-call dein#add('junegunn/vim-easy-align')
+    call dein#add('flazz/vim-colorschemes')
+    call dein#add('fuenor/qfixhowm')
+    call dein#add('hail2u/vim-css3-syntax')
+    call dein#add('jelera/vim-javascript-syntax')
+    call dein#add('Lokaltog/vim-easymotion')
+    call dein#add('pangloss/vim-javascript')
+    call dein#add('thinca/vim-guicolorscheme')
+    call dein#add('thinca/vim-quickrun')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('Shougo/neocomplcache')
+    call dein#add('Shougo/neosnippet')
+    call dein#add("Shougo/neosnippet-snippets")
+    call dein#add('Shougo/neomru.vim')
+    call dein#add('Shougo/vimshell')
+    call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/vimproc', {'build': 'make'})
+    call dein#add('tpope/vim-surround')
+    call dein#add('thinca/vim-ref')
+    call dein#add('tomtom/tcomment_vim')
+    call dein#add('ujihisa/unite-colorscheme')
+    call dein#add('ujihisa/unite-font')
+    call dein#add('Shougo/unite-outline')
+    call dein#add('ujihisa/neco-ghc')
+    call dein#add('ujihisa/ref-hoogle')
+    call dein#add('eagletmt/ghcmod-vim')
+    call dein#add('kana/vim-filetype-haskell')
+    call dein#add('dag/vim2hs')
+    call dein#add('vimtaku/hl_matchit.vim.git')
+    call dein#add('elzr/vim-json')
+    call dein#add('junegunn/vim-easy-align')
 
-call dein#end()
+    call dein#end()
+    call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+    call dein#install()
+endif
 
 filetype plugin on
 
