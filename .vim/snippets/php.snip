@@ -1,7 +1,7 @@
 snippet     errlg
 abbr        error_log
 prev_word   '^'
-    error_log(date("Y/m/d H:i:s") . " file:" . var_export(${1}, true) . "\n", 3, "/tmp/debug.log");
+    error_log(date("Y/m/d H:i:s") . " file:" . __FILE__ . " line: " . __LINE__ . " dump: " . var_export(${1}, true) . "\n");
 
 snippet     throwlog
 abbr        throw_exception_log
@@ -9,5 +9,5 @@ prev_word   '^'
     try {
         throw new Exception('test');
     } catch (Exception $e) {
-       error_log($e->getTraceAsString(), 3, "/tmp/debug.log");
+       error_log($e->getTraceAsString());
     }

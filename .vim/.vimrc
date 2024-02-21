@@ -41,6 +41,7 @@ if dein#load_state('~/dotfiles/.vim/dein')
     call dein#add('vimtaku/hl_matchit.vim.git')
     call dein#add('elzr/vim-json')
     call dein#add('junegunn/vim-easy-align')
+    call dein#add('vim-scripts/PDV--phpDocumentor-for-Vim')
 
     call dein#end()
     call dein#save_state()
